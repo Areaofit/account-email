@@ -31,7 +31,7 @@ public class AccountEmailServiceTest {
 	@Before
 	public void startMailServer() throws Exception {
 		greenMail = new GreenMail(ServerSetup.SMTP);
-		greenMail.setUser("hjwhugh@163.com", "Love0327");
+		greenMail.setUser("hjwhugh@163.com", "***");
 		greenMail.start();
 	}
 	
