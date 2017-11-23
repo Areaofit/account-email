@@ -22,6 +22,8 @@ import com.icegreen.greenmail.util.ServerSetup;
  */
 public class AccountEmailServiceTest {
 		
+	ApplicationContext applicationContext;
+	
 	private GreenMail greenMail;
 	
 	/**
@@ -30,8 +32,9 @@ public class AccountEmailServiceTest {
 	 */
 	@Before
 	public void startMailServer() throws Exception {
-		greenMail = new GreenMail(ServerSetup.SMTP);
-		greenMail.setUser("hjwhugh@163.com", "***");
+		ServerSetup serverSetup = new ServerSetup(25, "smtp.163.com", "smtp");
+		greenMail = new GreenMail(serverSetup);
+		greenMail.setUser("hjwhugh@163.com", "Love0327");
 		greenMail.start();
 	}
 	
@@ -41,12 +44,11 @@ public class AccountEmailServiceTest {
 	 */
 	@Test
 	public void testSendMail() throws Exception {
-		@SuppressWarnings("resource")
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("account-email.xml");
+		applicationContext = new ClassPathXmlApplicationContext("account-email.xml");
 		AccountEmailService accountEmailService = (AccountEmailService) applicationContext.getBean("accountEmailService");
 		String subject = "Test Subject";
-		String htmlText = "<h3>Test1</h3>";
-		accountEmailService.sendMail("areaofit@qq.com", subject, htmlText);
+		String htmlText = "<h3>I Love Java</h3>";
+		accountEmailService.sendMail("1354221849@qq.com", subject, htmlText);
 		System.out.println(greenMail.waitForIncomingEmail(2000,1));
 		Message[] msgs = greenMail.getReceivedMessages();
 		assertEquals(1, msgs.length);
