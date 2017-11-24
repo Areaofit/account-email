@@ -1,5 +1,8 @@
+<!-- project是所有pom.xml文件的根元素。它还声明了一些pom相关的命名空间及xsd元素，这些是非必须的。 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<!-- 表示当前pom模板的版本，对于Maven2和Maven3来说，只能是4.0.0 -->
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.areaofit.mvnbook.account</groupId>
@@ -7,7 +10,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
+	<!-- 项目名称，方便信息交流（非必须） -->
 	<name>account-email</name>
+	<!--  -->
 	<url>http://maven.apache.org</url>
 
 	<properties>
